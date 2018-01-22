@@ -1,0 +1,10 @@
+{
+  "name": "@vcalendars/models",
+  "version": "0.0.1",
+  "description": "Common models used throughout the vcalendars projects",
+  "main": "index.js",
+  "repository": "https://github.com/vcalendars/models.git",
+  "author": "Daniel Emery <danielremery@gmail.com>",
+  "license": "APACHE-2",
+  "private": false
+}
