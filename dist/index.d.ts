@@ -1,5 +1,5 @@
-import { Configuration } from './configuration';
+import { Configuration, Target } from './configuration';
 import { Season } from './season';
 import { Team } from './team';
 import { Match } from './match';
-export { Configuration, Season, Team, Match };
+export { Configuration, Target, Season, Team, Match };
