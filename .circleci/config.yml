@@ -21,6 +21,7 @@ jobs:
           command: |
             npm ci
             npm run build
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ./npmrc
             npm publish
 
 workflows:
