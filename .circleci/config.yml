@@ -17,12 +17,15 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Authenticate With NPM
+          command: |
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ./npmrc
+            npm whoami
+      - run:
           name: Prepare Deployment
           command: |
             npm ci
             npm run build
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ./npmrc
-            cat ./npmrc
             npm publish
 
 workflows:
