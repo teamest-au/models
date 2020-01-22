@@ -1,0 +1,41 @@
+version: 2.1
+jobs:
+  test:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          name: Run Unit Tests
+          command: |
+            npm ci
+            npm run build
+            npm t
+  publish:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          name: Authenticate With NPM
+          command: |
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ./npmrc
+            npm whoami
+      - run:
+          name: Prepare Deployment
+          command: |
+            npm ci
+            npm run build
+            npm publish
+
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - test
+      - publish:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /^v[0-9]+(\.[0-9]+)*$/

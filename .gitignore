@@ -57,5 +57,5 @@ typings/
 # dotenv environment variables file
 .env
 
-# tsc build output
-dist/*
+# Build artifacts
+dist
