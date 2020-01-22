@@ -12,6 +12,7 @@
   "license": "Apache-2.0",
   "private": false,
   "devDependencies": {
+    "@danielemeryau/prettier-config": "0.0.5",
     "typescript": "^3.7.5"
   }
 }

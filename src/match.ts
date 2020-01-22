@@ -1,4 +1,4 @@
-import { Team } from "./team";
+import { Team } from './team';
 
 /**
  * Data about a particular volleyball match.
@@ -11,7 +11,7 @@ export class Match {
     court: string,
     venue: string,
     round: string,
-    duty?: Team | undefined
+    duty?: Team | undefined,
   ) {
     this.home = home;
     this.away = away;

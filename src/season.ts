@@ -1,4 +1,4 @@
-import { Match } from "./match";
+import { Match } from './match';
 
 /**
  * A season of volleyball, consists of many matches.
