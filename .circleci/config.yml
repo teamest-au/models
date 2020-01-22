@@ -9,10 +9,28 @@ jobs:
           name: Run Unit Tests
           command: |
             npm ci
+            npm run build
             npm t
+  publish:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          name: Prepare Deployment
+          command: |
+            npm ci
+            npm run build
+            npm publish
 
 workflows:
   version: 2
   ci:
     jobs:
       - test
+      - publish:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /^v[0-9]+(\.[0-9]+)*$/
