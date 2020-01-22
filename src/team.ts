@@ -2,6 +2,9 @@
  * A volleyball team.
  */
 export class Team {
-    /** The name of the team. */
-    Name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+  /** The name of the team. */
+  name: string;
 }
