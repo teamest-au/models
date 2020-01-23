@@ -9,33 +9,69 @@ jobs:
           name: Run Unit Tests
           command: |
             npm ci
-            npm run build
             npm t
+            npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist/*
+            - package.json
+            - package-lock.json
+
+  publish-beta:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Authenticate with NPM
+          command: |
+            printf "//`node -p \"require('url').parse(process.env.NPM_REGISTRY_URL || 'https://registry.npmjs.org').host\"`/:_authToken=${NPM_TOKEN}\nregistry=${NPM_REGISTRY_URL:-https://registry.npmjs.org}\n" > .npmrc
+            npm whoami
+      - run:
+          name: Deploy to NPM
+          command: |
+            npm publish --access public --beta
+
   publish:
     docker:
       - image: circleci/node:10
     steps:
-      - checkout
+      - attach_workspace:
+          at: .
       - run:
-          name: Authenticate With NPM
+          name: Authenticate with NPM
           command: |
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ./npmrc
+            printf "//`node -p \"require('url').parse(process.env.NPM_REGISTRY_URL || 'https://registry.npmjs.org').host\"`/:_authToken=${NPM_TOKEN}\nregistry=${NPM_REGISTRY_URL:-https://registry.npmjs.org}\n" > .npmrc
             npm whoami
       - run:
-          name: Prepare Deployment
+          name: Deploy to NPM
           command: |
-            npm ci
-            npm run build
-            npm publish
+            npm publish --access public
 
 workflows:
   version: 2
   ci:
     jobs:
-      - test
+      - test:
+          filters:
+            tags:
+              only:
+                 /.*/
+      - publish-beta:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /v([0-9])*.([0-9])*.([0-9])*-.*/
+            branches:
+              ignore: /.*/
       - publish:
           requires:
             - test
           filters:
             tags:
-              only: /^v[0-9]+(\.[0-9]+)*$/
+              only: /v([0-9])*.([0-9])*.([0-9])*/
+            branches:
+              ignore: /.*/
