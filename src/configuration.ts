@@ -15,9 +15,15 @@ export class Configuration {
  * A scrape target.
  */
 export class Target {
-  constructor(url: string, scraperName: string, options?: any) {
+  constructor(
+    url: string,
+    scraperName: string,
+    timezone: string,
+    options?: any,
+  ) {
     this.url = url;
     this.scraperName = scraperName;
+    this.timezone = timezone;
     this.options = options;
   }
   /**
@@ -28,6 +34,10 @@ export class Target {
    * The scraper type to use to retrieve the data from the html.
    */
   scraperName: string;
+  /**
+   * The timezone that the data being scraped is expected to be in.
+   */
+  timezone: string;
   /**
    * Custom options to provide to scraper
    */
