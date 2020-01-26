@@ -9,7 +9,7 @@
   },
   "repository": "https://github.com/vcalendars/models.git",
   "author": "Daniel Emery <danielremery@gmail.com>",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "private": false,
   "devDependencies": {
     "@danielemeryau/prettier-config": "^0.0.6",
