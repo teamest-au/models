@@ -1,6 +1,17 @@
 import { Configuration, Target } from './configuration';
-import { Season } from './season';
+import { Season, SerialisedSeason } from './season';
 import { Team } from './team';
-import { Match } from './match';
+import { Match, SerialisedMatch } from './match';
+import { TeamSeason, SerialisedTeamSeason } from './team_season';
 
-export { Configuration, Target, Season, Team, Match };
+export {
+  Configuration,
+  Target,
+  Season,
+  SerialisedSeason,
+  Team,
+  Match,
+  SerialisedMatch,
+  TeamSeason,
+  SerialisedTeamSeason,
+};
