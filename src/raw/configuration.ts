@@ -1,10 +1,7 @@
 /**
  * Configuration defining which data should be scraped.
  */
-export class Configuration {
-  constructor(targets: Target[]) {
-    this.targets = targets;
-  }
+export interface Configuration {
   /**
    * List of targets to be scraped.
    */
@@ -14,18 +11,7 @@ export class Configuration {
 /**
  * A scrape target.
  */
-export class Target {
-  constructor(
-    url: string,
-    scraperName: string,
-    timezone: string,
-    options?: any,
-  ) {
-    this.url = url;
-    this.scraperName = scraperName;
-    this.timezone = timezone;
-    this.options = options;
-  }
+export interface Target {
   /**
    * The url to scrape the data from
    */

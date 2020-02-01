@@ -1,10 +1,7 @@
 /**
  * A volleyball team.
  */
-export class Team {
-  constructor(name: string) {
-    this.name = name;
-  }
+export interface Team {
   /** The name of the team. */
   name: string;
 }

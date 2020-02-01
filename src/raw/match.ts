@@ -3,24 +3,7 @@ import { Team } from './team';
 /**
  * Data about a particular volleyball match.
  */
-export class Match {
-  constructor(
-    home: Team,
-    away: Team,
-    time: Date,
-    court: string,
-    venue: string,
-    round: string,
-    duty?: Team | undefined,
-  ) {
-    this.home = home;
-    this.away = away;
-    this.time = time;
-    this.court = court;
-    this.venue = venue;
-    this.round = round;
-    this.duty = duty;
-  }
+export interface Match {
   /** The home team playing. */
   home: Team;
   /** The away team playing. */
@@ -37,24 +20,7 @@ export class Match {
   round: string;
 }
 
-export class SerialisedMatch {
-  constructor(
-    home: Team,
-    away: Team,
-    time: string,
-    court: string,
-    venue: string,
-    round: string,
-    duty?: Team | undefined,
-  ) {
-    this.home = home;
-    this.away = away;
-    this.time = time;
-    this.court = court;
-    this.venue = venue;
-    this.round = round;
-    this.duty = duty;
-  }
+export interface SerialisedMatch {
   /** The home team playing. */
   home: Team;
   /** The away team playing. */
