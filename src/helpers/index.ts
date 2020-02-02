@@ -6,6 +6,8 @@ import {
   ScrapedSeasonMessage,
   SerialisedChangedSeasonMessage,
   ChangedSeasonMessage,
+  CalendarRefreshMessage,
+  SerialisedCalendarRefreshMessage,
 } from '../messages';
 
 export function deserialiseMatch(sMatch: SerialisedMatch): Match {
@@ -23,29 +25,38 @@ export function deserialiseSeason(sSeason: SerialisedSeason): Season {
 }
 
 export function deserialiseCalendarUpdate(
-  sCalendarUpdate: SerialisedCalendarUpdateMessage,
+  sCalendarUpdateMessage: SerialisedCalendarUpdateMessage,
 ): CalendarUpdateMessage {
   return {
-    ...sCalendarUpdate,
-    timeUpdated: new Date(sCalendarUpdate.timeUpdated),
+    ...sCalendarUpdateMessage,
+    timeUpdated: new Date(sCalendarUpdateMessage.timeUpdated),
   };
 }
 
 export function deserialiseScrapedSeason(
-  sScrapedSeason: SerialisedScrapedSeasonMessage,
+  sScrapedSeasonMessage: SerialisedScrapedSeasonMessage,
 ): ScrapedSeasonMessage {
   return {
-    ...sScrapedSeason,
-    season: deserialiseSeason(sScrapedSeason.season),
-    timeScraped: new Date(sScrapedSeason.timeScraped),
+    ...sScrapedSeasonMessage,
+    season: deserialiseSeason(sScrapedSeasonMessage.season),
+    timeScraped: new Date(sScrapedSeasonMessage.timeScraped),
   };
 }
 
 export function deserialiseChangedSeason(
-  sChangedSeason: SerialisedChangedSeasonMessage,
+  sChangedSeasonMessage: SerialisedChangedSeasonMessage,
 ): ChangedSeasonMessage {
   return {
-    ...sChangedSeason,
-    timeDetected: new Date(sChangedSeason.timeDetected),
+    ...sChangedSeasonMessage,
+    timeDetected: new Date(sChangedSeasonMessage.timeDetected),
+  };
+}
+
+export function deserialiseCalendarRefresh(
+  sCalendarRefreshMessage: SerialisedCalendarRefreshMessage,
+): CalendarRefreshMessage {
+  return {
+    ...sCalendarRefreshMessage,
+    timeRequested: new Date(sCalendarRefreshMessage.timeRequested),
   };
 }

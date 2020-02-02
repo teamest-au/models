@@ -6,7 +6,10 @@ export {
   ChangedSeasonMessage,
   SerialisedChangedSeasonMessage,
 } from './changed_season_message';
-export { default as CalendarRefreshMessage } from './calendar_refresh_message';
+export {
+  CalendarRefreshMessage,
+  SerialisedCalendarRefreshMessage,
+} from './calendar_refresh_message';
 export {
   CalendarUpdateMessage,
   SerialisedCalendarUpdateMessage,
