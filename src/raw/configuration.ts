@@ -1,10 +1,6 @@
-/**
- * Configuration defining which data should be scraped.
- */
+/** Configuration defining which data should be scraped. */
 export interface Configuration {
-  /**
-   * List of targets to be scraped.
-   */
+  /** List of targets to be scraped. */
   targets: Array<Target>;
 }
 
@@ -12,20 +8,14 @@ export interface Configuration {
  * A scrape target.
  */
 export interface Target {
-  /**
-   * The url to scrape the data from
-   */
+  /** The url to scrape the data from */
   url: string;
-  /**
-   * The scraper type to use to retrieve the data from the html.
-   */
+  /** The scraper type to use to retrieve the data from the html. */
   scraperName: string;
-  /**
-   * The timezone that the data being scraped is expected to be in.
-   */
+  /** The timezone that the data being scraped is expected to be in. */
   timezone: string;
-  /**
-   * Custom options to provide to scraper
-   */
+  /** The match duration in minutes expected at the location. */
+  matchDuration: number;
+  /** Custom options to provide to scraper */
   options?: any;
 }
