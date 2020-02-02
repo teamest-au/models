@@ -24,6 +24,11 @@ jobs:
       - attach_workspace:
           at: .
       - run:
+          name: Move files out of dist
+          command: |
+            mv dist/* .
+            rmdir dist
+      - run:
           name: Authenticate with NPM
           command: |
             printf "//`node -p \"require('url').parse(process.env.NPM_REGISTRY_URL || 'https://registry.npmjs.org').host\"`/:_authToken=${NPM_TOKEN}\nregistry=${NPM_REGISTRY_URL:-https://registry.npmjs.org}\n" > .npmrc

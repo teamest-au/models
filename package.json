@@ -2,8 +2,6 @@
   "name": "@vcalendars/models",
   "version": "0.3.1-namespaces.0",
   "description": "Common models used throughout the vcalendars projects",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
