@@ -4,12 +4,12 @@ import { Message } from './message';
 /**
  * Message sent when the scraper scrapes a season from the web.
  */
-export interface ScrapedSeason extends Message {
+export interface ScrapedSeasonMessage extends Message {
   season: Season;
   timeScraped: Date;
 }
 
-export interface SerialisedScrapedSeason extends Message {
+export interface SerialisedScrapedSeasonMessage extends Message {
   season: SerialisedSeason;
   timeScraped: string;
 }

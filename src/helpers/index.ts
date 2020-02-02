@@ -1,11 +1,11 @@
 import { SerialisedMatch, SerialisedSeason, Match, Season } from '../raw';
 import {
-  CalendarUpdate,
-  SerialisedCalendarUpdate,
-  SerialisedScrapedSeason,
-  ScrapedSeason,
-  SerialisedChangedSeason,
-  ChangedSeason,
+  CalendarUpdateMessage,
+  SerialisedCalendarUpdateMessage,
+  SerialisedScrapedSeasonMessage,
+  ScrapedSeasonMessage,
+  SerialisedChangedSeasonMessage,
+  ChangedSeasonMessage,
 } from '../messages';
 
 export function deserialiseMatch(sMatch: SerialisedMatch): Match {
@@ -23,8 +23,8 @@ export function deserialiseSeason(sSeason: SerialisedSeason): Season {
 }
 
 export function deserialiseCalendarUpdate(
-  sCalendarUpdate: SerialisedCalendarUpdate,
-): CalendarUpdate {
+  sCalendarUpdate: SerialisedCalendarUpdateMessage,
+): CalendarUpdateMessage {
   return {
     ...sCalendarUpdate,
     timeUpdated: new Date(sCalendarUpdate.timeUpdated),
@@ -32,8 +32,8 @@ export function deserialiseCalendarUpdate(
 }
 
 export function deserialiseScrapedSeason(
-  sScrapedSeason: SerialisedScrapedSeason,
-): ScrapedSeason {
+  sScrapedSeason: SerialisedScrapedSeasonMessage,
+): ScrapedSeasonMessage {
   return {
     ...sScrapedSeason,
     season: deserialiseSeason(sScrapedSeason.season),
@@ -42,8 +42,8 @@ export function deserialiseScrapedSeason(
 }
 
 export function deserialiseChangedSeason(
-  sChangedSeason: SerialisedChangedSeason,
-): ChangedSeason {
+  sChangedSeason: SerialisedChangedSeasonMessage,
+): ChangedSeasonMessage {
   return {
     ...sChangedSeason,
     timeDetected: new Date(sChangedSeason.timeDetected),

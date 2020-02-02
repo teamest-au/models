@@ -1,4 +1,13 @@
-export { ScrapedSeason, SerialisedScrapedSeason } from './scraped_season';
-export { ChangedSeason, SerialisedChangedSeason } from './changed_season';
-export { default as CalendarRefresh } from './calendar_refresh';
-export { CalendarUpdate, SerialisedCalendarUpdate } from './calendar_update';
+export {
+  ScrapedSeasonMessage,
+  SerialisedScrapedSeasonMessage,
+} from './scraped_season_message';
+export {
+  ChangedSeasonMessage,
+  SerialisedChangedSeasonMessage,
+} from './changed_season_message';
+export { default as CalendarRefreshMessage } from './calendar_refresh_message';
+export {
+  CalendarUpdateMessage,
+  SerialisedCalendarUpdateMessage,
+} from './calendar_update_message';

@@ -1,7 +1,7 @@
 import { UserAuthType } from '../web';
 import { Message } from './message';
 
-export interface SerialisedCalendarUpdate extends Message {
+export interface SerialisedCalendarUpdateMessage extends Message {
   userAuthType: UserAuthType;
   userId: string;
   timeUpdated: string;
@@ -10,7 +10,7 @@ export interface SerialisedCalendarUpdate extends Message {
 /**
  * Message sent when the calendar generator updates a user's calendar.
  */
-export interface CalendarUpdate extends Message {
+export interface CalendarUpdateMessage extends Message {
   /** The authentication type of the user. */
   userAuthType: UserAuthType;
   /** The id of the user. */
