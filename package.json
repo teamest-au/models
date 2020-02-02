@@ -1,6 +1,6 @@
 {
   "name": "@vcalendars/models",
-  "version": "0.3.1-namespaces.0",
+  "version": "0.3.1-namespaces.1",
   "description": "Common models used throughout the vcalendars projects",
   "scripts": {
     "build": "tsc"
