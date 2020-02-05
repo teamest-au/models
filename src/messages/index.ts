@@ -7,9 +7,9 @@ export {
   SerialisedChangedSeasonMessage,
 } from './changed_season_message';
 export {
-  CalendarRefreshMessage,
-  SerialisedCalendarRefreshMessage,
-} from './calendar_refresh_message';
+  ChangedUserMessage,
+  SerialisedChangedUserMessage,
+} from './changed_user_message';
 export {
   CalendarUpdateMessage,
   SerialisedCalendarUpdateMessage,

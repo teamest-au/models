@@ -6,8 +6,8 @@ import {
   ScrapedSeasonMessage,
   SerialisedChangedSeasonMessage,
   ChangedSeasonMessage,
-  CalendarRefreshMessage,
-  SerialisedCalendarRefreshMessage,
+  ChangedUserMessage,
+  SerialisedChangedUserMessage,
 } from '../messages';
 import {
   SerialisedScrapedSeason,
@@ -16,7 +16,8 @@ import {
   TeamSeason,
 } from '../processed';
 
-/** Raw */
+/* Raw */
+
 export function deserialiseMatch(sMatch: SerialisedMatch): Match {
   return {
     ...sMatch,
@@ -31,7 +32,8 @@ export function deserialiseSeason(sSeason: SerialisedSeason): Season {
   };
 }
 
-/** Processed */
+/* Processed */
+
 export function deserialiseScrapedSeason(
   sScrapedSeason: SerialisedScrapedSeason,
 ): ScrapedSeason {
@@ -51,7 +53,8 @@ export function deserialiseTeamSeason(
   };
 }
 
-/** Messages */
+/* Messages */
+
 export function deserialiseCalendarUpdateMessage(
   sCalendarUpdateMessage: SerialisedCalendarUpdateMessage,
 ): CalendarUpdateMessage {
@@ -81,10 +84,10 @@ export function deserialiseChangedSeasonMessage(
 }
 
 export function deserialiseCalendarRefreshMessage(
-  sCalendarRefreshMessage: SerialisedCalendarRefreshMessage,
-): CalendarRefreshMessage {
+  sCalendarRefreshMessage: SerialisedChangedUserMessage,
+): ChangedUserMessage {
   return {
     ...sCalendarRefreshMessage,
-    timeRequested: new Date(sCalendarRefreshMessage.timeRequested),
+    timeChanged: new Date(sCalendarRefreshMessage.timeChanged),
   };
 }
