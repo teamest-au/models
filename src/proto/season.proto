@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+service Season {
+  rpc UpdateTeamSeason (TeamSeason) returns (UpdateTeamSeasonResult);
+}
+
+/** Based on Team @vcalendars/models/raw */
+message Team {
+  string name = 1;
+}
+
+/** Based on SerialisedMatch @vcalendars/models/raw */
+message Match {
+  Team home = 1;
+  Team away = 2;
+  Team duty = 3;
+  google.protobuf.Timestamp time = 4;
+  string court = 5;
+  string venue = 6;
+  string round = 7;
+}
+
+/** Based on SerialisedTeamSeason @vcalendars/models/processed */
+message TeamSeason {
+  string season_name = 1;
+  string team_name = 2;
+  repeated Match matches = 3;
+  google.protobuf.Timestamp time_scraped = 4;
+  string timezone = 5;
+  int32 match_duration = 6;
+}
+
+message UpdateTeamSeasonResult {
+  string season_name = 1;
+  string team_name = 2;
+  bool did_change = 3;
+}
