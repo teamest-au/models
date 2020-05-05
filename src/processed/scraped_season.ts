@@ -1,4 +1,4 @@
-import { Season, Target, SerialisedSeason } from '../raw';
+import { Season, Target, SerialisedSeason } from '../raw'; 
 
 export interface ScrapedSeason {
   season: Season;
