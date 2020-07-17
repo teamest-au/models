@@ -1,5 +1,5 @@
 import { Season, SerialisedSeason } from '../raw';
-import { Message } from './message';
+import { Message, SerialisedMessage } from './message';
 
 /**
  * Message sent when the scraper scrapes a season from the web.
@@ -15,7 +15,7 @@ export interface ScrapedSeasonMessage extends Message {
   matchDuration: number;
 }
 
-export interface SerialisedScrapedSeasonMessage extends Message {
+export interface SerialisedScrapedSeasonMessage extends SerialisedMessage {
   season: SerialisedSeason;
   timeScraped: string;
   timezone: string;

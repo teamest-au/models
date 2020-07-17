@@ -1,4 +1,4 @@
-import { Match, SerialisedMatch } from '../raw/match';
+import { Event, SerialisedEvent } from '../raw';
 
 /**
  * Team Season created by the data-manager.
@@ -9,8 +9,8 @@ export interface TeamSeason {
   seasonName: string;
   /** The name of the team playing in the season. */
   teamName: string;
-  /** The matches the team will be playing during the seaon. */
-  matches: Array<Match>;
+  /** The events the team will participate in during the seaon. */
+  events: Array<Event>;
   /** The time the season was scraped. */
   timeScraped: Date;
   /** The timezone of the location the season is played at. */
@@ -22,7 +22,7 @@ export interface TeamSeason {
 export interface SerialisedTeamSeason {
   seasonName: string;
   teamName: string;
-  matches: Array<SerialisedMatch>;
+  events: Array<SerialisedEvent>;
   timeScraped: string;
   timezone: string;
   matchDuration: number;

@@ -1,4 +1,4 @@
-import { Message } from './message';
+import { Message, SerialisedMessage } from './message';
 
 /**
  * Message sent when a user has changed their options and so their calendar needs to be refreshed.
@@ -10,7 +10,7 @@ export interface ChangedUserMessage extends Message {
   timeChanged: Date;
 }
 
-export interface SerialisedChangedUserMessage extends Message {
+export interface SerialisedChangedUserMessage extends SerialisedMessage {
   userId: string;
   timeChanged: string;
 }

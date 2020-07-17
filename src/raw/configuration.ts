@@ -8,7 +8,7 @@ export interface Configuration {
  * A scrape target.
  */
 export interface Target {
-  /** The url to scrape the data from */
+  /** The url to scrape the data from. */
   url: string;
   /** The scraper type to use to retrieve the data from the html. */
   scraperName: string;
@@ -16,6 +16,6 @@ export interface Target {
   timezone: string;
   /** The match duration in minutes expected at the location. */
   matchDuration: number;
-  /** Custom options to provide to scraper */
+  /** Custom options to provide to scraper. */
   options?: any;
 }

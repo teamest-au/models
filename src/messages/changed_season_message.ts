@@ -1,10 +1,4 @@
-import { Message } from "./message";
-
-export interface SerialisedChangedSeasonMessage extends Message {
-  seasonName: string;
-  teamName: string;
-  timeDetected: string;
-}
+import { Message, SerialisedMessage } from "./message";
 
 /**
  * Message sent when the data-manager detects a change in a TeamSeason.
@@ -16,4 +10,10 @@ export interface ChangedSeasonMessage extends Message {
   teamName: string;
   /** The time the change was detected. */
   timeDetected: Date;
+}
+
+export interface SerialisedChangedSeasonMessage extends SerialisedMessage {
+  seasonName: string;
+  teamName: string;
+  timeDetected: string;
 }

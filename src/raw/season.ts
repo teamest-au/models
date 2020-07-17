@@ -1,18 +1,18 @@
-import { Match, SerialisedMatch } from './match';
+import { Event, SerialisedEvent } from './event';
 
 /**
- * A season of volleyball, consists of many matches.
+ * A season, consists of many events that teams participate in.
  */
 export interface Season {
-  /** Name of the season */
+  /** Name of the season. */
   name: string;
-  /** List of all the matches that make up the season */
-  matches: Array<Match>;
+  /** List of all the events that make up the season. */
+  events: Array<Event>;
 }
 
 export interface SerialisedSeason {
-  /** Name of the season */
+  /** Name of the season. */
   name: string;
-  /** List of all the matches that make up the season */
-  matches: Array<SerialisedMatch>;
+  /** List of all the events that make up the season. */
+  events: Array<SerialisedEvent>;
 }

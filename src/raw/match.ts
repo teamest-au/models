@@ -1,38 +1,27 @@
+import { Event, SerialisedEvent } from './event';
 import { Team } from './team';
 
 /**
- * Data about a particular volleyball match.
+ * Data about a particular match.
  */
-export interface Match {
+export interface Match extends Event {
   /** The home team playing. */
   home: Team;
   /** The away team playing. */
   away: Team;
-  /** The duty team (if applicable) */
+  /** The duty team (if applicable). */
   duty?: Team;
-  /** The date and time the match is occurring. */
-  time: Date;
-  /** The court the match will take place on (if applicable) */
-  court: string;
-  /** The venue the match will take place at */
-  venue: string;
-  /** Optional name for the round */
-  round: string;
+  /** Name for the round (if available). */
+  round?: string;
 }
 
-export interface SerialisedMatch {
+export interface SerialisedMatch extends SerialisedEvent {
   /** The home team playing. */
   home: Team;
   /** The away team playing. */
   away: Team;
-  /** The duty team (if applicable) */
+  /** The duty team (if applicable). */
   duty?: Team;
-  /** The date and time the match is occurring. */
-  time: string;
-  /** The court the match will take place on (if applicable) */
-  court: string;
-  /** The venue the match will take place at */
-  venue: string;
-  /** Optional name for the round */
-  round: string;
+  /** Name for the round (if available). */
+  round?: string;
 }

@@ -2,3 +2,7 @@
 export interface Message {
   version: string;
 }
+
+export interface SerialisedMessage {
+  version: string;
+}
