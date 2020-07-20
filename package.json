@@ -3,7 +3,7 @@
   "version": "0.6.1",
   "description": "Common models used throughout the teamest projects",
   "scripts": {
-    "build": "tsc"
+    "build": "npx tsc"
   },
   "repository": "https://github.com/teamest-au/models.git",
   "author": "Daniel Emery <danielremery@gmail.com>",
