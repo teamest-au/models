@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc"
   },
-  "repository": "https://github.com/teamest/models.git",
+  "repository": "https://github.com/teamest-au/models.git",
   "author": "Daniel Emery <danielremery@gmail.com>",
   "license": "MIT",
   "private": false,
