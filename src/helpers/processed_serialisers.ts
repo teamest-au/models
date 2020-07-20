@@ -3,7 +3,22 @@ import {
   ScrapedSeason,
   SerialisedScrapedSeason,
 } from '../processed/scraped_season';
-import { deserialiseEvent, deserialiseSeason } from './raw_serialisers';
+import {
+  deserialiseEvent,
+  deserialiseSeason,
+  serialiseEvent,
+  serialiseSeason,
+} from './raw_serialisers';
+
+export function serialiseTeamSeason(
+  teamSeason: TeamSeason,
+): SerialisedTeamSeason {
+  return {
+    ...teamSeason,
+    events: teamSeason.events.map(serialiseEvent),
+    timeScraped: teamSeason.timeScraped.toISOString(),
+  };
+}
 
 export function deserialiseTeamSeason(
   sTeamSeason: SerialisedTeamSeason,
@@ -12,6 +27,15 @@ export function deserialiseTeamSeason(
     ...sTeamSeason,
     events: sTeamSeason.events.map(deserialiseEvent),
     timeScraped: new Date(sTeamSeason.timeScraped),
+  };
+}
+
+export function serialiseScrapedSeason(
+  scrapedSeason: ScrapedSeason,
+): SerialisedScrapedSeason {
+  return {
+    ...scrapedSeason,
+    season: serialiseSeason(scrapedSeason.season),
   };
 }
 
