@@ -1,11 +1,11 @@
 {
-  "name": "@vcalendars/models",
+  "name": "@teamest/models",
   "version": "0.5.1",
-  "description": "Common models used throughout the vcalendars projects",
+  "description": "Common models used throughout the teamest projects",
   "scripts": {
     "build": "tsc"
   },
-  "repository": "https://github.com/vcalendars/models.git",
+  "repository": "https://github.com/teamest/models.git",
   "author": "Daniel Emery <danielremery@gmail.com>",
   "license": "MIT",
   "private": false,

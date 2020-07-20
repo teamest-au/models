@@ -1,2 +1,3 @@
-# models
-Common models used throughout the vcalendars projects
+# Models
+
+Common typescript models used throughout the teamest projects
