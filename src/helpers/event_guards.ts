@@ -1,25 +1,17 @@
 import { Event, Match, Duty } from '../raw';
 
 /**
- * Type utility to get Match if given event is a match.
- * Otherwise return false.
- * @param event The event to attempt to coerce.
+ * Type guard to check if an event is a match.
+ * @param event The event to check the type for.
  */
-export function eventAsMatch(event: Event): Match | false {
-  if (event.type === 'match') {
-    return event as Match;
-  }
-  return false;
+export function isMatch(event: Event): event is Match {
+  return event.type === 'match';
 }
 
 /**
- * Type utility to get Duty if given event is a duty.
- * Otherwise return false.
- * @param event The event to attempt to coerce.
+ * Type guard to check if an event is a duty.
+ * @param event The event to check the type for.
  */
-export function eventAsDuty(event: Event): Duty | false {
-  if (event.type === 'duty') {
-    return event as Duty;
-  }
-  return false;
+export function isDuty(event: Event): event is Duty {
+  return event.type === 'duty';
 }
