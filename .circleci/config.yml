@@ -6,10 +6,17 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Run Unit Tests
+          name: Install Dependencies
           command: |
             npm ci
+      - run:
+          name: Build
+          command: |
             npm run build
+      - run:
+          name: Run Unit Tests
+          command: |
+            npm t
       - persist_to_workspace:
           root: .
           paths:
@@ -66,8 +73,7 @@ workflows:
       - test:
           filters:
             tags:
-              only:
-                 /.*/
+              only: /.*/
       - publish-beta:
           requires:
             - test
