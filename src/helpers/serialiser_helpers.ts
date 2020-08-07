@@ -39,3 +39,11 @@ export function createJSONSerialise<A, B>(serialiseFn: (arg: A) => B) {
     return serialiseObject(object);
   };
 }
+
+export function serialiseDate(date: Date): string {
+  return date.toISOString();
+}
+
+export function deserialiseDate(date: string) : Date {
+  return new Date(date);
+}

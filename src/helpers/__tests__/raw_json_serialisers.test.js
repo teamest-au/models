@@ -5,7 +5,7 @@ describe('RawJSONSerialisers', () => {
     it('must correctly serialise and deserialise an event', async () => {
       const event = {
         type: 'match',
-        time: new Date('1992-02-05T14:32:44'),
+        time: new Date('1992-02-05T14:32:44Z'),
         court: 'Show Court',
         venue: 'Olympic Stadium',
       };
@@ -13,7 +13,7 @@ describe('RawJSONSerialisers', () => {
       const packed = RawJSONSerialisers.serialiseEvent(event);
 
       expect(typeof packed).toBe('string');
-      expect(packed).toEqual('{"type":"match","time":"1992-02-05T04:02:44.000Z","court":"Show Court","venue":"Olympic Stadium"}');
+      expect(packed).toEqual('{"type":"match","time":"1992-02-05T14:32:44.000Z","court":"Show Court","venue":"Olympic Stadium"}');
 
       const actual = RawJSONSerialisers.deserialiseEvent(packed);
 
@@ -22,7 +22,7 @@ describe('RawJSONSerialisers', () => {
     it('must correctly serialise and deserialise a match AS an event', async () => {
       const match = {
         type: 'match',
-        time: new Date('1992-02-05T14:32:44'),
+        time: new Date('1992-02-05T14:32:44Z'),
         court: 'Show Court',
         venue: 'Olympic Stadium',
         home: {
@@ -40,7 +40,7 @@ describe('RawJSONSerialisers', () => {
       const packed = RawJSONSerialisers.serialiseEvent(match);
 
       expect(typeof packed).toBe('string');
-      expect(packed).toEqual('{"type":"match","time":"1992-02-05T04:02:44.000Z","court":"Show Court","venue":"Olympic Stadium","home":{"name":"USA","isExternal":false},"away":{"name":"Japan","isExternal":false},"duty":null,"round":"Round 1"}');
+      expect(packed).toEqual('{"type":"match","time":"1992-02-05T14:32:44.000Z","court":"Show Court","venue":"Olympic Stadium","home":{"name":"USA","isExternal":false},"away":{"name":"Japan","isExternal":false},"duty":null,"round":"Round 1"}');
 
       const actual = RawJSONSerialisers.deserialiseEvent(packed);
 
@@ -51,7 +51,7 @@ describe('RawJSONSerialisers', () => {
     it('must correctly serialise and deserialise a duty', async () => {
       const duty = {
         type: 'duty',
-        time: new Date('1992-02-05T14:32:44'),
+        time: new Date('1992-02-05T14:32:44Z'),
         court: 'Show Court',
         venue: 'Olympic Stadium',
         home: { name: 'USA' },
@@ -71,7 +71,7 @@ describe('RawJSONSerialisers', () => {
     it('must correctly serialise and deserialise a duty with optional fields', async () => {
       const duty = {
         type: 'duty',
-        time: new Date('1992-02-05T14:32:44'),
+        time: new Date('1992-02-05T14:32:44Z'),
         court: undefined,
         venue: undefined,
         home: undefined,
@@ -93,7 +93,7 @@ describe('RawJSONSerialisers', () => {
     it('must correctly serialise and deserialise a match', async () => {
       const match = {
         type: 'duty',
-        time: new Date('1992-02-05T14:32:44'),
+        time: new Date('1992-02-05T14:32:44Z'),
         court: 'Show Court',
         venue: 'Olympic Stadium',
         home: { name: 'USA' },
@@ -113,7 +113,7 @@ describe('RawJSONSerialisers', () => {
     it('must correctly serialise and deserialise a match with optional fields', async () => {
       const match = {
         type: 'duty',
-        time: new Date('1992-02-05T14:32:44'),
+        time: new Date('1992-02-05T14:32:44Z'),
         court: undefined,
         venue: undefined,
         home: { name: 'USA' },
@@ -138,7 +138,7 @@ describe('RawJSONSerialisers', () => {
         events: [
           {
             type: 'duty',
-            time: new Date('1992-02-05T14:32:44'),
+            time: new Date('1992-02-05T14:32:44Z'),
             court: 'Show Court',
             venue: 'Olympic Stadium',
             home: { name: 'USA' },

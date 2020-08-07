@@ -3,6 +3,7 @@ import { SerialisedSeason, Season } from '../raw/season';
 import { DeserialiseError } from './serialiser_errors';
 import { Duty, SerialisedDuty } from '../raw/duty';
 import { Match, SerialisedMatch } from '../raw/match';
+import { serialiseDate, deserialiseDate } from './serialiser_helpers';
 
 const validTypes: Array<EventType> = ['duty', 'match', 'other'];
 
@@ -18,7 +19,7 @@ function validateType(type: string): EventType {
 export function serialiseEvent(event: Event): SerialisedEvent {
   return {
     ...event,
-    time: event.time.toISOString(),
+    time: serialiseDate(event.time),
   };
 }
 
@@ -26,7 +27,7 @@ export function deserialiseEvent(sEvent: SerialisedEvent): Event {
   return {
     ...sEvent,
     type: validateType(sEvent.type),
-    time: new Date(sEvent.time),
+    time: deserialiseDate(sEvent.time),
   };
 }
 
