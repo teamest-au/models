@@ -9,15 +9,9 @@ export interface ScrapedSeasonMessage extends Message {
   season: Season;
   /** The time the season was scraped. */
   timeScraped: Date;
-  /** The timezone of the location the season was scraped from. */
-  timezone: string;
-  /** The duration of matches (in minutes) at the competition the season was scraped from. */
-  matchDuration: number;
 }
 
 export interface SerialisedScrapedSeasonMessage extends SerialisedMessage {
   season: SerialisedSeason;
   timeScraped: string;
-  timezone: string;
-  matchDuration: number;
 }
