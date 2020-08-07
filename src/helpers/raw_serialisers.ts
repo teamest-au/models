@@ -15,18 +15,18 @@ function validateType(type: string): EventType {
   return type as EventType;
 }
 
-export function serialiseEvent(match: Event): SerialisedEvent {
+export function serialiseEvent(event: Event): SerialisedEvent {
   return {
-    ...match,
-    time: match.time.toISOString(),
+    ...event,
+    time: event.time.toISOString(),
   };
 }
 
-export function deserialiseEvent(sMatch: SerialisedEvent): Event {
+export function deserialiseEvent(sEvent: SerialisedEvent): Event {
   return {
-    ...sMatch,
-    type: validateType(sMatch.type),
-    time: new Date(sMatch.time),
+    ...sEvent,
+    type: validateType(sEvent.type),
+    time: new Date(sEvent.time),
   };
 }
 
