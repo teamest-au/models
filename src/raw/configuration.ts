@@ -12,10 +12,6 @@ export interface Target {
   url: string;
   /** The scraper type to use to retrieve the data from the html. */
   scraperName: string;
-  /** The timezone that the data being scraped is expected to be in. */
-  timezone: string;
-  /** The match duration in minutes expected at the location. */
-  matchDuration: number;
   /** Custom options to provide to scraper. */
   options?: any;
 }
