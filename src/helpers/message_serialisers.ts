@@ -16,12 +16,15 @@ import {
 } from '../messages/changed_user_message';
 
 import { deserialiseSeason, serialiseSeason } from './raw_serialisers';
+import { serialiseDate, deserialiseDate } from './serialiser_helpers';
 
-export function serialiseCalendarUpdateMessage(calendarUpdateMessage: CalendarUpdateMessage) {
+export function serialiseCalendarUpdateMessage(
+  calendarUpdateMessage: CalendarUpdateMessage,
+) {
   return {
     ...calendarUpdateMessage,
-    timeUpdated: calendarUpdateMessage.timeUpdated.toISOString(),
-  }
+    timeUpdated: serialiseDate(calendarUpdateMessage.timeUpdated),
+  };
 }
 
 export function deserialiseCalendarUpdateMessage(
@@ -29,16 +32,18 @@ export function deserialiseCalendarUpdateMessage(
 ): CalendarUpdateMessage {
   return {
     ...sCalendarUpdateMessage,
-    timeUpdated: new Date(sCalendarUpdateMessage.timeUpdated),
+    timeUpdated: deserialiseDate(sCalendarUpdateMessage.timeUpdated),
   };
 }
 
-export function serialiseScrapedSeasonMessage(scrapedSeasonMessage: ScrapedSeasonMessage) {
+export function serialiseScrapedSeasonMessage(
+  scrapedSeasonMessage: ScrapedSeasonMessage,
+) {
   return {
     ...scrapedSeasonMessage,
     season: serialiseSeason(scrapedSeasonMessage.season),
-    timeUpdated: scrapedSeasonMessage.timeScraped.toISOString(),
-  }
+    timeUpdated: serialiseDate(scrapedSeasonMessage.timeScraped),
+  };
 }
 
 export function deserialiseScrapedSeasonMessage(
@@ -47,15 +52,17 @@ export function deserialiseScrapedSeasonMessage(
   return {
     ...sScrapedSeasonMessage,
     season: deserialiseSeason(sScrapedSeasonMessage.season),
-    timeScraped: new Date(sScrapedSeasonMessage.timeScraped),
+    timeScraped: deserialiseDate(sScrapedSeasonMessage.timeScraped),
   };
 }
 
-export function serialiseChangedSeasonMessage(changedSeasonMessage: ChangedSeasonMessage) {
+export function serialiseChangedSeasonMessage(
+  changedSeasonMessage: ChangedSeasonMessage,
+) {
   return {
     ...changedSeasonMessage,
-    timeDetected: changedSeasonMessage.timeDetected.toISOString(),
-  }
+    timeDetected: serialiseDate(changedSeasonMessage.timeDetected),
+  };
 }
 
 export function deserialiseChangedSeasonMessage(
@@ -63,15 +70,17 @@ export function deserialiseChangedSeasonMessage(
 ): ChangedSeasonMessage {
   return {
     ...sChangedSeasonMessage,
-    timeDetected: new Date(sChangedSeasonMessage.timeDetected),
+    timeDetected: deserialiseDate(sChangedSeasonMessage.timeDetected),
   };
 }
 
-export function serialiseChangedUserMessage(changedUserMessage: ChangedUserMessage) {
+export function serialiseChangedUserMessage(
+  changedUserMessage: ChangedUserMessage,
+) {
   return {
     ...changedUserMessage,
-    timeChanged: changedUserMessage.timeChanged.toISOString(),
-  }
+    timeChanged: serialiseDate(changedUserMessage.timeChanged),
+  };
 }
 
 export function deserialiseChangedUserMessage(
@@ -79,6 +88,6 @@ export function deserialiseChangedUserMessage(
 ): ChangedUserMessage {
   return {
     ...sCalendarRefreshMessage,
-    timeChanged: new Date(sCalendarRefreshMessage.timeChanged),
+    timeChanged: deserialiseDate(sCalendarRefreshMessage.timeChanged),
   };
 }

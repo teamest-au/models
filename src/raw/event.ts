@@ -3,7 +3,7 @@ export type EventType = 'duty' | 'match' | 'other';
 export interface Event {
   /** The type of event. */
   type: EventType;
-  /** The date and time the match is occurring. */
+  /** The date and time the event is occurring. */
   time: Date;
   /** The timezone the event occurs in. Defaults to UTC. */
   timezone?: string;
@@ -11,7 +11,7 @@ export interface Event {
   duration?: number;
   /** The court the match will take place on (if applicable). */
   court?: string;
-  /** The venue the match will take place at. */
+  /** The venue the match will take place at (if applicable). */
   venue?: string;
 }
 

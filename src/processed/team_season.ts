@@ -5,19 +5,25 @@ import { Event, SerialisedEvent } from '../raw';
  * The base data used to create calendars and for the API to provide match data.
  */
 export interface TeamSeason {
+  /** The name of the competition. */
+  competitionName: string;
   /** The name of the season. */
   seasonName: string;
   /** The name of the team playing in the season. */
   teamName: string;
   /** The events the team will participate in during the seaon. */
   events: Array<Event>;
-  /** The time the season was scraped. */
-  timeScraped: Date;
+  /** The time the season was last scraped. */
+  lastScraped: Date;
+  /** The time the season was last changed. */
+  lastChanged: Date;
 }
 
 export interface SerialisedTeamSeason {
+  competitionName: string;
   seasonName: string;
   teamName: string;
   events: Array<SerialisedEvent>;
-  timeScraped: string;
+  lastScraped: string;
+  lastChanged: string;
 }

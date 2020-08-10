@@ -34,7 +34,7 @@ export function deserialiseEvent(sEvent: SerialisedEvent): Event {
 export function serialiseDuty(duty: Duty): SerialisedDuty {
   return {
     ...duty,
-    time: duty.time.toISOString(),
+    time: serialiseDate(duty.time),
   };
 }
 
@@ -42,14 +42,14 @@ export function deserialiseDuty(sDuty: SerialisedDuty): Duty {
   return {
     ...sDuty,
     type: validateType(sDuty.type),
-    time: new Date(sDuty.time),
+    time: deserialiseDate(sDuty.time),
   };
 }
 
 export function serialiseMatch(match: Match): SerialisedMatch {
   return {
     ...match,
-    time: match.time.toISOString(),
+    time: serialiseDate(match.time),
   };
 }
 
@@ -57,7 +57,7 @@ export function deserialiseMatch(sMatch: SerialisedMatch): Match {
   return {
     ...sMatch,
     type: validateType(sMatch.type),
-    time: new Date(sMatch.time),
+    time: deserialiseDate(sMatch.time),
   };
 }
 

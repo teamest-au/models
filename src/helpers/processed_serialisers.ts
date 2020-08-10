@@ -9,6 +9,7 @@ import {
   serialiseEvent,
   serialiseSeason,
 } from './raw_serialisers';
+import { serialiseDate, deserialiseDate } from './serialiser_helpers';
 
 export function serialiseTeamSeason(
   teamSeason: TeamSeason,
@@ -16,7 +17,8 @@ export function serialiseTeamSeason(
   return {
     ...teamSeason,
     events: teamSeason.events.map(serialiseEvent),
-    timeScraped: teamSeason.timeScraped.toISOString(),
+    lastScraped: serialiseDate(teamSeason.lastScraped),
+    lastChanged: serialiseDate(teamSeason.lastChanged),
   };
 }
 
@@ -26,7 +28,8 @@ export function deserialiseTeamSeason(
   return {
     ...sTeamSeason,
     events: sTeamSeason.events.map(deserialiseEvent),
-    timeScraped: new Date(sTeamSeason.timeScraped),
+    lastScraped: deserialiseDate(sTeamSeason.lastScraped),
+    lastChanged: deserialiseDate(sTeamSeason.lastChanged),
   };
 }
 

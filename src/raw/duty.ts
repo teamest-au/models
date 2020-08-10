@@ -16,12 +16,8 @@ export interface Duty extends Event {
 }
 
 export interface SerialisedDuty extends SerialisedEvent {
-  /** The home team playing (if available). */
   home?: Team;
-  /** The away team playing (if available). */
   away?: Team;
-  /** The duty team. */
   duty: Team;
-  /** Name for the round (if available). */
   round?: string;
 }
