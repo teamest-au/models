@@ -1,4 +1,7 @@
-import { TeamSeason, SerialisedTeamSeason } from '../processed/team_season';
+import {
+  SavedTeamSeason,
+  SerialisedSavedTeamSeason,
+} from '../processed/saved_team_season';
 import {
   ScrapedSeason,
   SerialisedScrapedSeason,
@@ -10,6 +13,7 @@ import {
   serialiseSeason,
 } from './raw_serialisers';
 import { serialiseDate, deserialiseDate } from './serialiser_helpers';
+import { TeamSeason, SerialisedTeamSeason } from '../processed';
 
 export function serialiseTeamSeason(
   teamSeason: TeamSeason,
@@ -18,13 +22,33 @@ export function serialiseTeamSeason(
     ...teamSeason,
     events: teamSeason.events.map(serialiseEvent),
     lastScraped: serialiseDate(teamSeason.lastScraped),
-    lastChanged: serialiseDate(teamSeason.lastChanged),
   };
 }
 
 export function deserialiseTeamSeason(
   sTeamSeason: SerialisedTeamSeason,
 ): TeamSeason {
+  return {
+    ...sTeamSeason,
+    events: sTeamSeason.events.map(deserialiseEvent),
+    lastScraped: deserialiseDate(sTeamSeason.lastScraped),
+  };
+}
+
+export function serialiseSavedTeamSeason(
+  teamSeason: SavedTeamSeason,
+): SerialisedSavedTeamSeason {
+  return {
+    ...teamSeason,
+    events: teamSeason.events.map(serialiseEvent),
+    lastScraped: serialiseDate(teamSeason.lastScraped),
+    lastChanged: serialiseDate(teamSeason.lastChanged),
+  };
+}
+
+export function deserialiseSavedTeamSeason(
+  sTeamSeason: SerialisedSavedTeamSeason,
+): SavedTeamSeason {
   return {
     ...sTeamSeason,
     events: sTeamSeason.events.map(deserialiseEvent),

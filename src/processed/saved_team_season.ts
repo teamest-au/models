@@ -1,9 +1,10 @@
 import { Event, SerialisedEvent } from '../raw';
 
 /**
- * Team Season created by the data-worker, consists of event data sorted into teams.
+ * Team Season after diff checked and save by internal-season-api.
+ * The base data used to create calendars and for the API to provide match data.
  */
-export interface TeamSeason {
+export interface SavedTeamSeason {
   /** The name of the competition. */
   competitionName: string;
   /** The name of the season. */
@@ -14,12 +15,15 @@ export interface TeamSeason {
   events: Array<Event>;
   /** The time the season was last scraped. */
   lastScraped: Date;
+  /** The time the season was last changed. */
+  lastChanged: Date;
 }
 
-export interface SerialisedTeamSeason {
+export interface SerialisedSavedTeamSeason {
   competitionName: string;
   seasonName: string;
   teamName: string;
   events: Array<SerialisedEvent>;
   lastScraped: string;
+  lastChanged: string;
 }

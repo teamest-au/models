@@ -17,3 +17,9 @@ export const serialiseTeamSeason = createJSONSerialise(
 export const deserialiseTeamSeason = createJSONDeserialise(
   ProcessedSerialisers.deserialiseTeamSeason,
 );
+export const serialiseSavedTeamSeason = createJSONSerialise(
+  ProcessedSerialisers.serialiseSavedTeamSeason,
+);
+export const deserialiseSavedTeamSeason = createJSONDeserialise(
+  ProcessedSerialisers.deserialiseSavedTeamSeason,
+);
